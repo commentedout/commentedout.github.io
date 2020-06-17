@@ -583,7 +583,7 @@ footer .footer-custom-content {
 }
 .intro-header .page-heading {
   text-align: center;
-  color: #b13022;
+  /*color: #b13022;*/
 }
 .intro-header.big-img .page-heading,
 .intro-header.big-img .post-heading {
@@ -918,6 +918,9 @@ pre {
   font-size: 1rem;
 }
 
-.post-heading h2 {
+.post-heading h2:first-child {
+  color: #b13022;
+}
+.post-preview .post-title {
   color: #b13022;
 }
