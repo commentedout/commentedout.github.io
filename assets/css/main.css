@@ -388,7 +388,8 @@ footer .copyright {
 footer .theme-by {
   text-align: center;
   margin: 0.625rem 0 0;
-  color: #b13022;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-decoration: none;
 }
 footer .footer-custom-content {
   text-align: center;
