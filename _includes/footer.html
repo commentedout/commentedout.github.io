@@ -1,18 +1,31 @@
-<footer class="footer-min">
-  <div class="text-muted">
-    {% if site.author %}
-      {{ site.author }}
-      &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-    {% endif %}
-    {% if page.date %}
-      {{ page.date }}
-    {% else %}
+<footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      {% include social-networks-links.html %}
+      {% if page.footer-extra %}
+        <div class="footer-custom-content">
+          {% include {{ page.footer-extra }} %}
+        </div>
+      {% endif %}
+      <p class="copyright text-muted">
+      {% if site.author %}
+        {{ site.author }}
+        &nbsp;&bull;&nbsp;
+      {% endif %}
       {{ site.time | date: '%Y' }}
-    {% endif %}
 
-    {% if site.url-pretty %}
-      &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-      <a href="{{ '' | absolute_url }}">{{ site.url-pretty }}</a>
-    {% endif %}
+      {% if site.url-pretty %}
+        &nbsp;&bull;&nbsp;
+        <a href="{{ '' | absolute_url }}">{{ site.url-pretty }}</a>
+      {% endif %}
+      
+      </p>
+      <p class="theme-by text-muted">
+        Theme by
+        <a href="https://beautifuljekyll.com">beautiful-jekyll</a>
+      </p>
+      </div>
+    </div>
   </div>
 </footer>
