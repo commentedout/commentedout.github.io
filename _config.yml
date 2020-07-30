@@ -12,8 +12,8 @@ author: srs
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  About Me: "aboutme"  
-  Home: "https://commentedout.github.io"
+  about: "aboutme"  
+  home: "https://commentedout.github.io"
 
 # --- Logo --- #
 
