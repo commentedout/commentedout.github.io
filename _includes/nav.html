@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% endif %}">
-
+  <a class="navbar-brand" href="#">//commented out</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,23 +26,4 @@
       {%- endfor -%}
     </ul>
   </div>
-
-  {% if page.image and (layout.show-avatar or page.show-avatar) %}
-    <div class="avatar-container">
-      <div class="avatar-img-border">
-        <a href="{{ '' | absolute_url }}">
-          <img alt="Navbar avatar" class="avatar-img" src="{{ page.image | relative_url }}" />
-        </a>
-      </div>
-    </div>
-  {% elsif site.avatar and (layout.show-avatar or page.show-avatar) %}
-    <div class="avatar-container">
-      <div class="avatar-img-border">
-        <a href="{{ '' | absolute_url }}">
-          <img alt="Navbar avatar" class="avatar-img" src="{{ site.avatar | relative_url }}" />
-        </a>
-      </div>
-    </div>
-  {% endif %}
-
 </nav>
