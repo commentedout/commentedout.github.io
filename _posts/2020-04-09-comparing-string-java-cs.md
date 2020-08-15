@@ -1,3 +1,11 @@
+---
+layout: post
+title: String comparison using '=='
+subtitle: 'How the usage differs in Java and C#'
+tags: 'C#,Java,Fundamentals,Java vs C#'
+
+---
+
 ## In Java
 
 **==** checks if the two references point to the same object or not.
@@ -50,5 +58,6 @@ For reference types **other than string**, == returns true if its two operands r
     Console.WriteLine(x == y); //True
 
   Reason for the above output: x and y are now strings and hence == will compare their values
+
 
 
