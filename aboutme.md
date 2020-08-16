@@ -3,8 +3,6 @@ layout: about
 title: About me
 ---
 
-## About Me
-
 ~~~csharp
 foreach(second in myLife)
 {

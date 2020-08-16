@@ -905,3 +905,8 @@ pre {
 .aboutme{
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.aboutme h1{
+  color: #b13022;
+  margin-bottom: 5rem;
+}
