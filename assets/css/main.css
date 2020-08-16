@@ -796,12 +796,9 @@ pre {
   margin: 0;
 }
 .highlight > pre {
-  background-image: linear-gradient(
-    rgba(0,0,0,0.06), rgba(0,0,0,0.06) 1.5em, rgba(0,0,0,0.03) 1.5em, rgba(0,0,0,0.03) 3em);
-  background-size: auto 3em;
-  background-position-y: 0.625rem;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-left: 0.4375rem solid #444;
+  border: 1px solid #d7e6f1;
+  border-left: 0.4375rem solid #d7e6f1;
+  background-color: #f8fbfd;
 }
 .highlight > pre:not([class~="highlight"]) { /* code block with line number */
   padding: 0;
