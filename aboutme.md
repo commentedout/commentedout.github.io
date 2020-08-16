@@ -1,16 +1,19 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+
 ---
 
-My name is Inigo Montoya. I have the following qualities:
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+**
 
-What else do you need?
+## About Me
 
-### my history
+**
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+Hi, I’m **Saurabh**. I’m a **Software Engineer** based in **Pune**, India. I specialize in designing and developing backend applications. Although I have developed frontends for a substantial part of my professional career, currently I focus only on backends. I have a special interest in system design and application security.
+
+This blog is my attempt to share with others what I have learnt after putting in hours of effort.
+
+If you have any suggestions for me or have any question feel free to contact me at [cmmtout@gmail.com](mailto:cmmtout@gmail.com).
+
