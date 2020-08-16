@@ -15,7 +15,8 @@ tags: 'C#,Java,Fundamentals,Java vs C#'
   
 
 Note that the **.equals()** method belongs to class Object. You need to override it as per you class requirement, but for String it is already implemented and it checks whether two strings have the same value or not.
-~~~Java
+
+~~~java
 String s1 = "Hello World";    
 String s2 = "Hello World";    
 s1 == s1; // true    
@@ -27,7 +28,7 @@ Reason: String literals created without null are stored in the string pool in th
 String constants are usually "interned" such that two constants with the same value can actually be compared with ==, but it's better not to rely on that.
 
   
-~~~Java
+~~~java
 String s1 = new String("Hello World");    
 String s2 = new String("Hello World");    
 s1 == s2; // false    
