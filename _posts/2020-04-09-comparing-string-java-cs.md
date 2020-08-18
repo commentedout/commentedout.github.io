@@ -11,13 +11,12 @@ In this article let's deep dive into how the equality operator ("==") behaves wh
 ### Let's begin with Java
 In Java we have two inbuilt mechanisms to check for equality:
 
- - **==** operator
-	* To compare the values of primitive data types (int, float, double,..).
-	 * To check if two object references point to the same object.  
-	    
-	 
+ - **==** operator  
  
-
+	* To compare the values of primitive data types (int, float, double,..).  
+		
+	 * To check if two object references point to the same object.  
+	 
  -  **equals()** method
 	 - `equals()` method belongs to the `Object` class. You have to override it as per your requirement, but for **String** it is already overridden and it checks whether two strings have the same value or not.  
 	 
@@ -28,6 +27,7 @@ In Java we have two inbuilt mechanisms to check for equality:
 
 		i.e. in this case `equals()` will behave same like `==` 
 
+In this article we will be focusing only on comparing Strings using the above two
 
 
 
