@@ -18,15 +18,30 @@ In Java we have two inbuilt mechanisms to check for equality:
 	 
  -  **equals()** method
 	 - `equals()` method belongs to the `Object` class. You have to override it as per your requirement, but for **String** it is already overridden and it checks whether two strings have the same value or not.
-	 * If you don't override the `equals()` method in your class, then the equals() method of the closest parent class that has overridden this method will be used.
+	 * If you don't override the `equals()` method in your class, then the `equals()` method of the closest parent class that has overridden this method will be used.
 	 * But if no parent class has overridden the `equals()` method then the `equals()` method of the ultimate superclass - the `Object` class is used. And as per the [Java API Specification](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals%28java.lang.Object%29) : 
 		 > For any non-null reference values x and y, equals() method returns true if and only if x and y refer to the same object.  
 
 		i.e. in this case `equals()` will behave same like `==` 
 
-Lets see how these two comparison mechanisms differ in case of comparing strings. A _string literal_ consists of zero or more characters enclosed in double quotes. A string literal is a reference to an instance of class `String`.
+Let us now see how == and equals() behave while comparing strings. But before that here are some basics that every developer should know about strings:  
 
-    String str = "Good Morning";  
+A **literal** is a value you _literally_ type in your code and so they are fixed. Example:
+~~~java
+int age = 3; //integer literal
+boolean isAvailable = true; //boolean literal
+String str1 = "Hello World"; //string literal
+~~~
+
+A _string literal_ consists of zero or more characters enclosed in double quotes. A string literal is a reference to an instance of class String.
+You can also create a string by explicitly creating an instance of class String.  
+~~~java
+String str2 = new String("Hello World");   
+~~~
+We can see that both **str1** (string literal) and **str2** (new String()) are **instances of class String**. However there is one important difference between the two.
+ 
+
+
 
 
 
