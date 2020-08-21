@@ -13,27 +13,21 @@ In Java we have two inbuilt mechanisms to check for equality:
 
  - **==** operator  
  
-	* To compare the values of primitive data types (int, float, double,..).  
-		
+	* To compare the values of primitive data types (int, float, double,..). 
 	 * To check if two object references point to the same object.  
 	 
  -  **equals()** method
-	 - `equals()` method belongs to the `Object` class. You have to override it as per your requirement, but for **String** it is already overridden and it checks whether two strings have the same value or not.  
-	 
-	 * If you don't override the `equals()` method in your class, then the equals() method of the closest parent class that has overridden this method will be used.  
-	 
+	 - `equals()` method belongs to the `Object` class. You have to override it as per your requirement, but for **String** it is already overridden and it checks whether two strings have the same value or not.
+	 * If you don't override the `equals()` method in your class, then the equals() method of the closest parent class that has overridden this method will be used.
 	 * But if no parent class has overridden the `equals()` method then the `equals()` method of the ultimate superclass - the `Object` class is used. And as per the [Java API Specification](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals%28java.lang.Object%29) : 
 		 > For any non-null reference values x and y, equals() method returns true if and only if x and y refer to the same object.  
 
 		i.e. in this case `equals()` will behave same like `==` 
 
-In this article we will be focusing only on comparing Strings using the above two
-
-
-
-A _string literal_ consists of zero or more characters enclosed in double quotes. A string literal is a reference to an instance of class `String`.
+Lets see how these two comparison mechanisms differ in case of comparing strings. A _string literal_ consists of zero or more characters enclosed in double quotes. A string literal is a reference to an instance of class `String`.
 
     String str = "Good Morning";  
+
 
 
 **==** 
