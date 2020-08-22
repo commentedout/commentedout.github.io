@@ -24,7 +24,7 @@ In Java we have two inbuilt mechanisms to check for equality:
 
 		i.e. in this case `equals()` will behave same like `==` 
 
-Let us now see how == and equals() behave while comparing strings. But before that here are some basics that every developer should know about strings:  
+We will see how **==** and **equals()** behave while comparing Strings. But before we get there, here are some basics we should know:  
 
 A **literal** is a value you _literally_ type in your code and so they are fixed. Example:
 ~~~java
@@ -33,12 +33,26 @@ boolean isAvailable = true; //boolean literal
 String str1 = "Hello World"; //string literal
 ~~~
 
-A _string literal_ consists of zero or more characters enclosed in double quotes. A string literal is a reference to an instance of class String.
+A **_string literal_** consists of zero or more characters enclosed in double quotes. A string literal is a reference to an instance of class String.   
 You can also create a string by explicitly creating an instance of class String.  
 ~~~java
 String str2 = new String("Hello World");   
 ~~~
-We can see that both **str1** (string literal) and **str2** (new String()) are **instances of class String**. However there is one important difference between the two.
+We can see that both **str1** (string literal) and **str2** (new String()) are **instances of class String**. However there is an important difference between the two. To understand this difference we should first understand **Interning of String**.  
+
+To preserve memory and improve performance Java internally maintains a ***pool of strings***. When you create a string literal e.g. `String x = "Hello World";`, JVM will look for this string value in this pool of strings.   
+If found, it will return the reference of the already existing string.  
+If not found, this string object is added to the pool and a reference to this newly added string is returned.  
+So even if you create multiple string literals with the same value, JVM will store only 1 copy of that string. e.g.  
+~~~java
+String x = "Hello World";
+String y = "Hello World";
+String z = "Hello World";
+~~~  
+In the above code snippet, JVM will maintain one 1 copy of "Hello World" in its pool of strings. Variables x,y and z will hold the reference to the same string object in the pool.
+This process is called Interning of String.
+
+
  
 
 
