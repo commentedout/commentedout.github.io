@@ -90,13 +90,16 @@ System.out.println(s2 == s3);      // true
 
 In the above code snippet, when we create the string literal **s3** (`String s3 = "Hello World"`) , first the string pool will be searched for "*Hello World*". Since "*Hello World*" was already manually interned in the previous step (`String s2 = s1.intern()`) the reference to the already interned string will be given to **s3**. Eventually both **s2** and **s3** will point to the same string object in the string pool and hence `s2 == s3` will return true.  
 
-I recommend not to use **==** for comparing String values in Java. Instead use **.equals()**. 
+I recommend not to use **==** for comparing String values in Java. Instead use **.equals()**.  
+  
+**Extra**: For those who also code in C# (like me), here is small information on how == differs when comparing strings. 
 
 ## In C#
 
-For predefined value types, == returns true if the values of its operands are equal.
+For predefined value types, **==** returns true if the values of its operands are equal. (this is same as Java) 
 
-For reference types **other than string**, **==** returns true if its two operands refer to the same object. For the string type, == compares the values of the strings.
+For reference types **other than string**, **==** returns true if its two operands refer to the same object. For the string type, **==** compares the values of the strings. (this behavior is different from Java)  
+Here are some code snippets to understand the behavior of == in C#:
 
 ~~~csharp
 var x = new StringBuilder("Hello World");    
@@ -111,8 +114,8 @@ var y = new StringBuilder("Hello World").ToString();
 Console.WriteLine(x == y); //True
 ~~~
 
-  Reason for the above output: x and y are now strings and hence == will compare their values
+Reason for the above output: x and y are now strings and hence == will compare their values.  
 
-
+Like in Java, in C# too **.Equals()** compares the values of two strings.
 
 
