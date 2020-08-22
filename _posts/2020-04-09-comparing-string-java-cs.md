@@ -40,9 +40,12 @@ String str2 = new String("Hello World");
 ~~~
 We can see that both **str1** (string literal) and **str2** (new String()) are **instances of class String**. However there is an important difference between the two. To understand this difference we should first understand **Interning of String**.  
 
-To preserve memory and improve performance Java internally maintains a ***pool of strings***. When you create a string literal e.g. `String x = "Hello World";`, JVM will look for this string value in this pool of strings.   
-If found, it will return the reference of the already existing string.  
-If not found, this string object is added to the pool and a reference to this newly added string is returned.  
+To preserve memory and improve performance Java (to be specific - JVM) internally maintains a ***pool of strings***. When you create a string literal e.g. `String x = "Hello World"` JVM will look for this string value in its pool of strings.   
+
+ - If found, it will return the reference of the already existing string.  
+ - If not found, this string object is added to the pool and a reference to this newly added string is returned.
+
+ 
 So even if you create multiple string literals with the same value, JVM will store only 1 copy of that string. e.g.  
 ~~~java
 String x = "Hello World";
