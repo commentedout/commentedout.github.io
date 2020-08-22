@@ -1,12 +1,18 @@
 ---
 layout: post
-title: String comparison using '=='
-subtitle: 'How the usage differs in Java and C#'
-tags: 'C#,Java,Fundamentals'
+title: How Interning of Strings affects String Comparison in Java
+tags: 'Java, Fundamentals, Programming'
 
 ---
 
-In this article let's deep dive into how the equality operator ("==") behaves while comparing Strings in Java. We will also briefly see how it differs in C#.
+In Java, Strings are reference types and for reference types **==** operator checks if two references point to the same object. Then why does the following Java code snippet prints _**true**_ ?
+
+```java
+String s1 = "Hello World";  
+String s2 = "Hello World";   
+System.out.println(s1 == s2);      //true 
+```
+In this article we will try to understand the reason behind this and for this we will have to understand how the equality operator ("==") behaves while comparing Strings in Java. In the end we will also look at how it differs in C#.
 
 ### Let's begin with Java
 In Java we have two inbuilt mechanisms to check for equality:
@@ -19,7 +25,7 @@ In Java we have two inbuilt mechanisms to check for equality:
  -  **equals()** method
 	 - `equals()` method belongs to the `Object` class. You have to override it as per your requirement, but for **String** it is already overridden and it checks whether two strings have the same value or not.
 	 * If you don't override the `equals()` method in your class, then the `equals()` method of the closest parent class that has overridden this method will be used.
-	 * But if no parent class has overridden the `equals()` method then the `equals()` method of the ultimate superclass - the `Object` class is used. And as per the [Java API Specification](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals%28java.lang.Object%29) : For any non-null reference values x and y, equals() method returns true if and only if x and y refer to the same object.  Therefore in this case `equals()` will behave same like `==` 
+	 * But if no parent class has overridden the `equals()` method then the `equals()` method of the ultimate superclass - the `Object` class is used. And as per the [Java API Specification](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals%28java.lang.Object%29) : For any non-null reference values x and y, equals() method returns true if and only if x and y refer to the same object.  Therefore in this case `equals()` will behave same like `==`.
 
 We will see how **==** and **equals()** behave while comparing Strings. But before we get there, here are some basics we should know:  
 
