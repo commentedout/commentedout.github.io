@@ -20,7 +20,7 @@ In Java we have two inbuilt mechanisms to check for equality:
 	 - `equals()` method belongs to the `Object` class. You have to override it as per your requirement, but for **String** it is already overridden and it checks whether two strings have the same value or not.
 	 * If you don't override the `equals()` method in your class, then the `equals()` method of the closest parent class that has overridden this method will be used.
 	 * But if no parent class has overridden the `equals()` method then the `equals()` method of the ultimate superclass - the `Object` class is used. And as per the [Java API Specification](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals%28java.lang.Object%29) : 
-		 > For any non-null reference values x and y, equals() method returns true if and only if x and y refer to the same object.  
+		 {: .box-note} For any non-null reference values x and y, equals() method returns true if and only if x and y refer to the same object.  
 
 		i.e. in this case `equals()` will behave same like `==` 
 
@@ -91,8 +91,9 @@ System.out.println(s2 == s3);      // true
 In the above code snippet, when we create the string literal **s3** (`String s3 = "Hello World"`) , first the string pool will be searched for "*Hello World*". Since "*Hello World*" was already manually interned in the previous step (`String s2 = s1.intern()`) the reference to the already interned string will be given to **s3**. Eventually both **s2** and **s3** will point to the same string object in the string pool and hence `s2 == s3` will return true.  
 
 I recommend not to use **==** for comparing String values in Java. Instead use **.equals()**.  
-  
-**Extra**: For those who also code in C# (like me), here is small information on how == differs when comparing strings. 
+
+<hr />
+**Extra**: For those who also code in C# (like me), here is small information on how **==** differs when comparing strings. 
 
 ## In C#
 
