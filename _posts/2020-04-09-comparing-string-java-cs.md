@@ -40,58 +40,57 @@ String str2 = new String("Hello World");
 ~~~
 We can see that both **str1** (string literal) and **str2** (new String()) are **instances of class String**. However there is an important difference between the two. To understand this difference we should first understand **Interning of String**.  
 
-To preserve memory and improve performance Java (to be specific - JVM) internally maintains a ***pool of strings***. When you create a string literal e.g. `String x = "Hello World"` JVM will look for this string value in its pool of strings, and -
+To preserve memory and improve performance Java (JVM to be specific) maintains a ***pool of strings***  internally on the heap. When you create a string literal e.g. `String x = "Hello World"` JVM will look for this string value in its pool of strings, and -
  - If found, it will return the reference of the already existing string.  
  - If not found, this string object is added to the pool and a reference to this newly added string is returned.
 
  
-So even if you create multiple string literals with the same value, JVM will store only 1 copy of that string. e.g.  
+So even if you create multiple string literals with the same value, JVM will ensure there exists only 1 copy of that string in the memory. e.g.  
 ~~~java
 String x = "Hello World";
 String y = "Hello World";
 String z = "Hello World";
 ~~~  
-In the above code snippet, JVM will maintain one 1 copy of "Hello World" in its pool of strings. Variables x,y and z will hold the reference to the same string object in the pool.
-This process is called Interning of String.
+For the above code snippet, JVM will maintain only one 1 copy of "Hello World" in its pool of strings. Variables x, y and z will hold references to the same string object in the pool.  
+This process is called Interning of String and when ever you create a string literal it is automatically interned by the JVM.  
 
-Now lets get back to String comparison and see how String Interning affects it
- 
-
-
-
-
-
-**==** 
-
-**.equals()** checks for the actual string content (value).
-
-  
-
-Note that the **.equals()** 
-
+Now lets look at the code snippet below and try to understand its output.
 ~~~java
-String s1 = "Hello World";    
-String s2 = "Hello World";    
-s1 == s1; // true    
-s1.equals(s2); // true
+String s1 = "Hello World";  
+String s2 = "Hello World";  
+System.out.println(s1.equals(s2)); // true  
+System.out.println(s1 == s2);      // true   
+~~~
+As we know, in case of strings, **.equals()** compares the values of two strings and hence `s1.equals(s2)` will return **true**. We also know that String is a reference type and for reference types **==** checks if two references point to the same object. Since string literals are automatically interned therefore **s1** and **s2** will have the references to the same string object in the string pool. This explains why `s1 == s2` will also return true.  
+
+This was all about comparing string literals. But what happens when you explicitly create instances of class String using the **new()** operator. In this case, the strings won't be automatically interned. Every string created using the **new()** operator will be allocated a separate space in the heap. This explains the output of the code snippet given below:  
+~~~java
+String s1 = new String("Hello World");  
+String s2 = new String("Hello World");  
+System.out.println(s1.equals(s2)); // true  
+System.out.println(s1 == s2);      // false. s1 and s2 point to different objects 
+~~~
+If you want to intern the strings created using **new()** you will have to manually invoke the `intern()` method.  Like this-
+~~~java
+String s1 = new String("Hello World");  
+s1.intern();
+~~~
+When `intern()` is invoked on string **s1**, JVM checks if the string pool already contains a string equal to "*Hello World*". If yes, then the reference to this string object is returned from the pool. Else, this String object is added to the string pool and a reference to this newly added String object is returned.  
+
+Lets see the code snippet below and try to understand the output:  
+~~~java
+String s1 = new String("Hello World"); //s1 is created on the heap  
+String s2 = s1.intern();  //s1 is added to the string pool and s2 stores its reference  
+String s3 = "Hello World";  //s3 will point to the already interned string s2   
+
+System.out.println(s1 == s3);      // false  
+System.out.println(s1 == s2);      // false  
+System.out.println(s2 == s3);      // true
 ~~~
 
-Reason: String literals created without null are stored in the string pool in the permgen area of the heap. So both s1 and s2 point to the same object in the pool.
+In the above code snippet, when we create the string literal **s3** (`String s3 = "Hello World"`) , first the string pool will be searched for "*Hello World*". Since "*Hello World*" was already manually interned in the previous step (`String s2 = s1.intern()`) the reference to the already interned string will be given to **s3**. Eventually both **s2** and **s3** will point to the same string object in the string pool and hence `s2 == s3` will return true.  
 
-String constants are usually "interned" such that two constants with the same value can actually be compared with ==, but it's better not to rely on that.
-
-  
-~~~java
-String s1 = new String("Hello World");    
-String s2 = new String("Hello World");    
-s1 == s2; // false    
-s1.equals(s2); // true
-~~~
-  
-
-//Reason: If you create a String object using the `new` keyword a separate space is allocated to it on the heap.
-
-  
+I recommend not to use **==** for comparing String values in Java. Instead use **.equals()**. 
 
 ## In C#
 
