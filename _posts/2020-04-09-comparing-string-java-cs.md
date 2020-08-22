@@ -19,10 +19,7 @@ In Java we have two inbuilt mechanisms to check for equality:
  -  **equals()** method
 	 - `equals()` method belongs to the `Object` class. You have to override it as per your requirement, but for **String** it is already overridden and it checks whether two strings have the same value or not.
 	 * If you don't override the `equals()` method in your class, then the `equals()` method of the closest parent class that has overridden this method will be used.
-	 * But if no parent class has overridden the `equals()` method then the `equals()` method of the ultimate superclass - the `Object` class is used. And as per the [Java API Specification](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals%28java.lang.Object%29) : 
-		 {: .box-note} For any non-null reference values x and y, equals() method returns true if and only if x and y refer to the same object.  
-
-		i.e. in this case `equals()` will behave same like `==` 
+	 * But if no parent class has overridden the `equals()` method then the `equals()` method of the ultimate superclass - the `Object` class is used. And as per the [Java API Specification](https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals%28java.lang.Object%29) : For any non-null reference values x and y, equals() method returns true if and only if x and y refer to the same object.  Therefore in this case `equals()` will behave same like `==` 
 
 We will see how **==** and **equals()** behave while comparing Strings. But before we get there, here are some basics we should know:  
 
@@ -51,8 +48,7 @@ String x = "Hello World";
 String y = "Hello World";
 String z = "Hello World";
 ~~~  
-For the above code snippet, JVM will maintain only one 1 copy of "Hello World" in its pool of strings. Variables x, y and z will hold references to the same string object in the pool.  
-This process is called Interning of String and when ever you create a string literal it is automatically interned by the JVM.  
+For the above code snippet, JVM will maintain only one 1 copy of "Hello World" in its pool of strings. Variables x, y and z will hold references to the same string object in the pool. This process is called *Interning of String* and *when ever you create a string literal it is automatically interned by the JVM*.  
 
 Now lets look at the code snippet below and try to understand its output.
 ~~~java
