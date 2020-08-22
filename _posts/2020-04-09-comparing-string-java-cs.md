@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How Interning of Strings affects String Comparison in Java
-tags: 'Java, Fundamentals, Programming'
+tags: [Java, Programming,Fundamentals, C#]
 
 ---
 
