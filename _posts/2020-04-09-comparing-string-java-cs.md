@@ -40,8 +40,7 @@ String str2 = new String("Hello World");
 ~~~
 We can see that both **str1** (string literal) and **str2** (new String()) are **instances of class String**. However there is an important difference between the two. To understand this difference we should first understand **Interning of String**.  
 
-To preserve memory and improve performance Java (to be specific - JVM) internally maintains a ***pool of strings***. When you create a string literal e.g. `String x = "Hello World"` JVM will look for this string value in its pool of strings.   
-
+To preserve memory and improve performance Java (to be specific - JVM) internally maintains a ***pool of strings***. When you create a string literal e.g. `String x = "Hello World"` JVM will look for this string value in its pool of strings, and -
  - If found, it will return the reference of the already existing string.  
  - If not found, this string object is added to the pool and a reference to this newly added string is returned.
 
@@ -55,7 +54,7 @@ String z = "Hello World";
 In the above code snippet, JVM will maintain one 1 copy of "Hello World" in its pool of strings. Variables x,y and z will hold the reference to the same string object in the pool.
 This process is called Interning of String.
 
-
+Now lets get back to String comparison and see how String Interning affects it
  
 
 
