@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How Interning of Strings affects String Comparison in Java
+title: How Interning of Strings affects string comparison in Java
 tags: [Java, Programming,Fundamentals, C#]
 
 ---
