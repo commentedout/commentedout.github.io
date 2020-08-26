@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How Interning of Strings affects String Comparison in Java
+title: How Interning of Strings affects string comparison in Java
 tags: [Java, Programming,Fundamentals, C#]
 
 ---
@@ -102,6 +102,7 @@ I recommend not to use **==** for comparing String values in Java. Instead use *
 For predefined value types, **==** returns true if the values of its operands are equal. (this is same as Java) 
 
 For reference types **other than string**, **==** returns true if its two operands refer to the same object. For the string type, **==** compares the values of the strings. (this behavior is different from Java)  
+
 Here are some code snippets to understand the behavior of == in C#:
 
 ~~~csharp
