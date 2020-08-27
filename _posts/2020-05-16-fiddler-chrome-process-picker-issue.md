@@ -30,7 +30,7 @@ Fiddler provides few other ways too using which you can specifically filter only
  2. Change the value from **Default** to **Enabled**. By doing this you are telling Chrome to run the Network Service inside the browser process (_in-process_).
  3. Restart Chrome.
 
-**NOTE:** At he point of writing this I was using Chrome 84.  
+**NOTE:** At the point of writing this I was using version 84 of Chrome.  
  
  As I mentioned earlier, in Fiddler you can specifically filter Chrome's or any other application's requests without using the *Any Process* picker tool too. To do this, in Fiddler right click on any request and select '*Filter Now*' and then '*Show Only Process=xxxxx*'   
  
