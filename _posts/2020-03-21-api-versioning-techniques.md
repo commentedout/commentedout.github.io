@@ -54,12 +54,12 @@ Each one of these has its pros and cons. Let's discuss these in details.
 
 **1. Specifying version in the URI**  
 Every time you modify your Web API or modify the schema of response, you add a version number to the URI. The previously existing URIs should continue to operate as before. For our bookstore example, we can do it like this-
-~~~json
+~~~
 GET https://siabookstore.com/api/v2/books
 ~~~
 
 For now, the older URI-
-~~~json
+~~~
 https://siabookstore.com/api/books
 ~~~
 can be assumed to be *Version 1* if you don't want to modify the client application (mobile app).  
@@ -68,7 +68,7 @@ Tip: If you are working to write Web APIs for an application from scratch and yo
 
 **Pros**: Easy to implement and understand. Web Servers will handle the routing for you if you have set up your directory structure appropriately.  
 **Cons**: Some people who strictly adhere to the rules - "Once a URI is assigned to a resource it should never change" or "A resource must be accessible by only one URI" argue that this method of versioning is bad. For e.g.  in our case, one book is being represented by multiple URIs.
-~~~json
+~~~
 ../api/v1/books/9780143333623
 ../api/v2/books/9780143333623
 ~~~
@@ -78,12 +78,12 @@ Tip: If you are working to write Web APIs for an application from scratch and yo
 
 **2. Specifying version in a Query String**  
 Another way to specify the version in the HTTP request is to mention it in a query string of the URI. Something like this:
-~~~json
+~~~
 GET https://siabookstore.com/api/books?ver=2
 ~~~
 This technique allows you to host several API versions on a single base path and differentiate between them using the query string parameter.  
 **Pros:** One resource will be identified by only one URI. e.g.
-~~~json
+~~~
 ../api/books/9780143333623&ver=1
 ../api/books/9780143333623&ver=2
 ~~~
@@ -101,7 +101,7 @@ Let's see how we can use the Accept header to specify the version for our bookst
 
 (i) Specify version as **part of the media type**:
 
-~~~json
+~~~
 GET https://siabookstore.com/api/books/9780143333623
 Accept: application/vnd.siabookstore.v2+json
 ~~~
@@ -109,7 +109,7 @@ Accept: application/vnd.siabookstore.v2+json
 `json` is the suffix.
 
 (ii) Specify version as a **parameter to the media type**:
-~~~json
+~~~
 GET https://siabookstore.com/api/books/9780143333623
 Accept: application/vnd.siabookstore+json;version=2
 ~~~  
@@ -120,9 +120,12 @@ Accept: application/vnd.siabookstore+json;version=2
 If you are unfamiliar with the nomenclatures mentioned above, let me try to explain these through the diagram below. Here are two different values of *Accept* header used in our example:  
 
 ![enter image description here](https://raw.githubusercontent.com/commentedout/commentedout.github.io/master/assets/img/api-ver-02.png)
-In both of the header values shown above, media type's sub type is vendor specific (hence the prefix - 'vnd'). As this API is for the company Sia Bookstore, we have added the suffix - 'siabookstore'. It doesn't matter what suffix you keep, but it should be prefixed with 'vnd'. If you are creating a public API then it is recommended to get your custom content type [registered with IANA](https://www.iana.org/assignments/media-types/media-types.xhtml). However it is not mandatory.  *Suffix* is optionally used to specify the underlying structure of the media type. In our example its JSON. A '+' sign is used to separate the media type and suffix. The type/sub type **may be** followed by *parameters* in the form of 'name=value' pairs. In our example it is `version=2`. The presence of parameter(s) after a media type can affect the processing of the request.
+  
+In both of the header values shown above, media type's sub type is vendor specific (hence the prefix - 'vnd'). As this API is for the company Sia Bookstore, we have added the suffix - 'siabookstore'. It doesn't matter what suffix you keep, but it should be prefixed with 'vnd'. If you are creating a public API then it is recommended to get your custom content type [registered with IANA](https://www.iana.org/assignments/media-types/media-types.xhtml). However it is not mandatory.   
+  
+ ***Suffix*** is optionally used to specify the underlying structure of the media type. In our example its JSON. A '+' sign is used to separate the media type and suffix. The type/sub type **may be** followed by ***parameters*** in the form of '*name=value*' pairs. In our example it is `version=2`. The presence of parameter(s) after a media type can affect the processing of the request.
 
-Your server application should process the Accept header and see if it can respond to the client in the format it asked for. The web server confirms the format of the response data in the Content-Type header. But if the Accept header does not specify any known media type, the web server can send HTTP 406 (Not Acceptable) response message or return a message with a default media type.
+Your server application should process the Accept header and see if it can respond to the client in the format it asked for. The web server confirms the format of the response data in the Content-Type header. But if the Accept header does not specify any known media type, the web server can send HTTP [406 (Not Acceptable)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406) response message or return a message with a default media type.
 
 **Pros**: It conforms to the one resource, one URI guideline of REST.  
 **Cons**: Clients should be aware of implementing the custom media type. Relatively harder to implement and test than the earlier two techniques. 
@@ -132,7 +135,7 @@ Your server application should process the Accept header and see if it can respo
 **4. Specifying version in a custom HTTP Header** 
 We can add a custom header to our HTTP request to specify the version of the API. Client applications will have to add this custom header to all the required HTTP requests.
 
-~~~json
+~~~
 GET https://siabookstore.com/api/books/9780143333623
 siabookstore-api-ver: 2
 ~~~
@@ -143,5 +146,5 @@ siabookstore-api-ver: 2
 These were the four major versioning techniques that API developers generally use. Remember, there are no strict rules for versioning. You need to determine which technique best fulfils your requirement. But one thing I would like to mention is the effect of the versioning technique on the performance of your application. To improve the performance of web APIs, developers implement server-side caching. Instead of querying the database to get the data every time, data is fetched from the cache if it is available there. The URI versioning and Query String versioning techniques are cache-friendly. The Header versioning techniques require further logic to check the values in the Accept header or the custom header.
 
 **Should you support all versions of your APIs forever?**  
-Supporting all the versions forever may prove to be costly and would become cumbersome for you. If you choose to deprecate an old version of your API, you should notify your clients well in advance so that they upgrade their applications. Any deprecated API that is not supported anymore should return [410 Gone](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/410) error response code.
+Supporting all the versions forever may prove to be costly and would become cumbersome for you. If you choose to deprecate an old version of your API, you should notify your clients well in advance so that they upgrade their applications. Any deprecated API that is not supported anymore should return HTTP [410 (Gone)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/410) error response code.
 
