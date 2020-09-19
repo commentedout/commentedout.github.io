@@ -105,7 +105,7 @@ Let's see how we can use the Accept header to specify the version for our bookst
 GET https://siabookstore.com/api/books/9780143333623
 Accept: application/vnd.siabookstore.v2+json
 ~~~
-`application/vnd.siabookstore.v2`
+`application/vnd.siabookstore.v2` is the Media Type.  
 `json` is the suffix.
 
 (ii) Specify version as a **parameter to the media type**:
