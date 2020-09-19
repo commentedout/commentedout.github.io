@@ -1,6 +1,6 @@
 ---
 layout: post
-title: REST API Versioning ":" Why and How? 
+title: REST API Versioning - Why and How? 
 tags: [REST API, Web Development, Fundamentals]
 
 ---
@@ -54,12 +54,12 @@ Each one of these has its pros and cons. Let's discuss these in details.
 
 **1. Specifying version in the URI**
 Every time you modify your Web API or modify the schema of response, you add a version number to the URI. The previously existing URIs should continue to operate as before. For our bookstore example, we can do it like this-
-~~~matlab
+~~~java
 GET https://siabookstore.com/api/v2/books
 ~~~
 
 For now, the older URI-
-~~~matlab
+~~~java
 https://siabookstore.com/api/books
 ~~~
 can be assumed to be *Version 1* if you don't want to modify the client application (mobile app).  
@@ -68,7 +68,7 @@ Tip: If you are working to write Web APIs for an application from scratch and yo
 
 **Pros**: Easy to implement and understand. Web Servers will handle the routing for you if you have set up your directory structure appropriately.
 **Cons**: Some people who strictly adhere to the rules - "Once a URI is assigned to a resource it should never change" or "A resource must be accessible by only one URI" argue that this method of versioning is bad. For e.g.  in our case, one book is being represented by multiple URIs.
-~~~matlab
+~~~java
 ../api/v1/books/9780143333623
 ../api/v2/books/9780143333623
 ~~~
@@ -78,12 +78,12 @@ Tip: If you are working to write Web APIs for an application from scratch and yo
 
 **2. Specifying version in a Query String**  
 Another way to specify the version in the HTTP request is to mention it in a query string of the URI. Something like this:
-~~~matlab
+~~~java
 GET https://siabookstore.com/api/books?ver=2
 ~~~
 This technique allows you to host several API versions on a single base path and differentiate between them using the query string parameter.
 **Pros:** One resource will be identified by only one URI. e.g.
-~~~matlab
+~~~java
 ../api/books/9780143333623&ver=1
 ../api/books/9780143333623&ver=2
 ~~~
@@ -101,7 +101,7 @@ Let's see how we can use the Accept header to specify the version for our bookst
 
 (i) Specify version as **part of the media type**:
 
-~~~http
+~~~java
 GET https://siabookstore.com/api/books/9780143333623
 Accept: application/vnd.siabookstore.v2+json
 ~~~
@@ -109,7 +109,7 @@ Accept: application/vnd.siabookstore.v2+json
 `json` is the suffix.
 
 (ii) Specify version as a **parameter to the media type**:
-~~~http
+~~~java
 GET https://siabookstore.com/api/books/9780143333623
 Accept: application/vnd.siabookstore+json;version=2
 ~~~  
@@ -131,7 +131,7 @@ Your server application should process the Accept header and see if it can respo
 **4. Specifying version in a custom HTTP Header** 
 We can add a custom header to our HTTP request to specify the version of the API. Client applications will have to add this custom header to all the required HTTP requests.
 
-~~~http
+~~~java
 GET https://siabookstore.com/api/books/9780143333623
 siabookstore-api-ver: 2
 ~~~
