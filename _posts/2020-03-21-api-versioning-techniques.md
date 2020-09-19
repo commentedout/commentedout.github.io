@@ -52,38 +52,38 @@ It's simple. You have to mention the version of Web API you want to consume whil
 
 Each one of these has its pros and cons. Let's discuss these in details.
 
-**1. Specifying version in the URI**
+**1. Specifying version in the URI**  
 Every time you modify your Web API or modify the schema of response, you add a version number to the URI. The previously existing URIs should continue to operate as before. For our bookstore example, we can do it like this-
-~~~java
+~~~json
 GET https://siabookstore.com/api/v2/books
 ~~~
 
 For now, the older URI-
-~~~java
+~~~json
 https://siabookstore.com/api/books
 ~~~
 can be assumed to be *Version 1* if you don't want to modify the client application (mobile app).  
 
 Tip: If you are working to write Web APIs for an application from scratch and you believe these APIs would evolve in future, I would suggest you mention /v1 in the URI from beginning. This has a benefit that other developers can probably guess what this /v1 means just by looking at the URI.
 
-**Pros**: Easy to implement and understand. Web Servers will handle the routing for you if you have set up your directory structure appropriately.
+**Pros**: Easy to implement and understand. Web Servers will handle the routing for you if you have set up your directory structure appropriately.  
 **Cons**: Some people who strictly adhere to the rules - "Once a URI is assigned to a resource it should never change" or "A resource must be accessible by only one URI" argue that this method of versioning is bad. For e.g.  in our case, one book is being represented by multiple URIs.
-~~~java
+~~~json
 ../api/v1/books/9780143333623
 ../api/v2/books/9780143333623
 ~~~
-#FYI: YouTube, Twitter uses this form of versioning in their APIs
+*#FYI*: YouTube and Twitter use this form of versioning in their APIs
 
 
 
 **2. Specifying version in a Query String**  
 Another way to specify the version in the HTTP request is to mention it in a query string of the URI. Something like this:
-~~~java
+~~~json
 GET https://siabookstore.com/api/books?ver=2
 ~~~
-This technique allows you to host several API versions on a single base path and differentiate between them using the query string parameter.
+This technique allows you to host several API versions on a single base path and differentiate between them using the query string parameter.  
 **Pros:** One resource will be identified by only one URI. e.g.
-~~~java
+~~~json
 ../api/books/9780143333623&ver=1
 ../api/books/9780143333623&ver=2
 ~~~
@@ -101,7 +101,7 @@ Let's see how we can use the Accept header to specify the version for our bookst
 
 (i) Specify version as **part of the media type**:
 
-~~~java
+~~~json
 GET https://siabookstore.com/api/books/9780143333623
 Accept: application/vnd.siabookstore.v2+json
 ~~~
@@ -109,15 +109,15 @@ Accept: application/vnd.siabookstore.v2+json
 `json` is the suffix.
 
 (ii) Specify version as a **parameter to the media type**:
-~~~java
+~~~json
 GET https://siabookstore.com/api/books/9780143333623
 Accept: application/vnd.siabookstore+json;version=2
 ~~~  
-`application/vnd.siabookstore` is the Media Type.
-`json` is the suffix.
+`application/vnd.siabookstore` is the Media Type.  
+`json` is the suffix.  
 `version=2`  is the parameter.
 
-If you are not familiar with the nomenclatures mentioned above, let me try to explain these through the diagram below. Here are two different values of *Accept* header used in our example:
+If you are unfamiliar with the nomenclatures mentioned above, let me try to explain these through the diagram below. Here are two different values of *Accept* header used in our example:
 ![enter image description here](https://raw.githubusercontent.com/commentedout/commentedout.github.io/master/assets/img/api-ver-02.png)
 In both of the header values shown above, media type's sub type is vendor specific (hence the prefix - 'vnd'). As this API is for the company Sia Bookstore, we have added the suffix - 'siabookstore'. It doesn't matter what suffix you keep, but it should be prefixed with 'vnd'. If you are creating a public API then it is recommended to get your custom content type [registered with IANA](https://www.iana.org/assignments/media-types/media-types.xhtml). However it is not mandatory.  *Suffix* is optionally used to specify the underlying structure of the media type. In our example its JSON. A '+' sign is used to separate the media type and suffix. The type/sub type **may be** followed by *parameters* in the form of 'name=value' pairs. In our example it is `version=2`. The presence of parameter(s) after a media type can affect the processing of the request.
 
@@ -131,7 +131,7 @@ Your server application should process the Accept header and see if it can respo
 **4. Specifying version in a custom HTTP Header** 
 We can add a custom header to our HTTP request to specify the version of the API. Client applications will have to add this custom header to all the required HTTP requests.
 
-~~~java
+~~~json
 GET https://siabookstore.com/api/books/9780143333623
 siabookstore-api-ver: 2
 ~~~
