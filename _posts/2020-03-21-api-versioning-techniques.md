@@ -43,7 +43,7 @@ For some reasons, _Sia Bookstore_ decided to make this feature available only on
 ## How do we version Web APIs?
 
   
-To do this, you have to mention the version of Web API you want to consume while sending the HTTP Request. There are four different places in an HTTP Request where you can specify the version:
+To do this, we need to mention the version of Web API we want to consume while sending the HTTP Request. There are four different places in an HTTP Request where we can specify the version:
 
 1.  In the URI
 2.  In a Query String
