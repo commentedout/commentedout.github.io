@@ -43,7 +43,7 @@ For some reasons, _Sia Bookstore_ decided to make this feature available only on
 ## How do we version Web APIs?
 
   
-It's simple. You have to mention the version of Web API you want to consume while sending the HTTP Request. There are four different places in an HTTP Request where you can specify the version:
+To do this, you have to mention the version of Web API you want to consume while sending the HTTP Request. There are four different places in an HTTP Request where you can specify the version:
 
 1.  In the URI
 2.  In a Query String
@@ -82,6 +82,7 @@ Another way to specify the version in the HTTP request is to mention it in a que
 GET https://siabookstore.com/api/books?ver=2
 ~~~
 This technique allows you to host several API versions on a single base path and differentiate between them using the query string parameter.  
+  
 **Pros:** One resource will be identified by only one URI. e.g.
 ~~~
 ../api/books/9780143333623&ver=1
@@ -121,9 +122,9 @@ If you are unfamiliar with the nomenclatures mentioned above, let me try to expl
 
 ![enter image description here](https://raw.githubusercontent.com/commentedout/commentedout.github.io/master/assets/img/api-ver-02.png)
   
-In both of the header values shown above, media type's sub type is vendor specific (hence the prefix - 'vnd'). As this API is for the company Sia Bookstore, we have added the suffix - 'siabookstore'. It doesn't matter what suffix you keep, but it should be prefixed with 'vnd'. If you are creating a public API then it is recommended to get your custom content type [registered with IANA](https://www.iana.org/assignments/media-types/media-types.xhtml). However it is not mandatory.   
+In both the header values shown above, media type's sub type is vendor specific (hence the prefix - 'vnd'). As this API is for the company Sia Bookstore, we have added the suffix - 'siabookstore'. It doesn't matter what suffix you keep, but it should be prefixed with 'vnd'. If you are creating a public API then it is recommended to get your custom content type [registered with IANA](https://www.iana.org/assignments/media-types/media-types.xhtml). However it is not mandatory.   
   
- ***Suffix*** is optionally used to specify the underlying structure of the media type. In our example its JSON. A '+' sign is used to separate the media type and suffix. The type/sub type **may be** followed by ***parameters*** in the form of '*name=value*' pairs. In our example it is `version=2`. The presence of parameter(s) after a media type can affect the processing of the request.
+ ***Suffix*** is optionally used to specify the underlying structure of the media type. In our example its JSON. A '+' sign is used to separate the media type and suffix. The media type **may be** followed by ***parameters*** in the form of '*name=value*' pairs. In our example it is `version=2`. The presence of parameter(s) after a media type can affect the processing of the request.
 
 Your server application should process the Accept header and see if it can respond to the client in the format it asked for. The web server confirms the format of the response data in the Content-Type header. But if the Accept header does not specify any known media type, the web server can send HTTP [406 (Not Acceptable)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406) response message or return a message with a default media type.
 
