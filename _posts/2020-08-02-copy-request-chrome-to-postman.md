@@ -21,6 +21,7 @@ Quite often during web development, we need to fiddle with the outgoing web requ
 3. Click on *'**Raw text**'* and paste the copied content. Click *'**Continue**'*. Postman will ask you to confirm your import. Click *'**Import**'*.   
 
 ![Importing cURL in Postman](https://raw.githubusercontent.com/commentedout/commentedout.github.io/master/assets/img/chrome-to-postman-02.png)
+  
 The web request will be cloned in Postman. Cheers!    
   
   
