@@ -13,16 +13,16 @@ Quite often during web development, we need to fiddle with the outgoing web requ
 
   
 
- 1. Open Chrome's Developers Tool and right-click on the request you want to clone in Postman. Then click on *'**Copy**'* and then *'**Copy as cURL (bash)**'*.  
+- Open Chrome's Developers Tool and right-click on the request you want to clone in Postman. Then click on *'**Copy**'* and then *'**Copy as cURL (bash)**'*.  
   
 ![Copy request from Chrome](https://raw.githubusercontent.com/commentedout/commentedout.github.io/master/assets/img/chrome-to-postman-01.png)
- 2. Open Postman. Click on *'**Import**'* button or you can use the shortcut (on windows): ***Ctrl + O***. Import panel will open.    
+- Open Postman. Click on *'**Import**'* button or you can use the shortcut (on windows): ***Ctrl + O***. Import panel will open.    
  
-3. Click on *'**Raw text**'* and paste the copied content. Click *'**Continue**'*. Postman will ask you to confirm your import. Click *'**Import**'*.   
+- Click on *'**Raw text**'* and paste the copied content. Click *'**Continue**'*. Postman will ask you to confirm your import. Click *'**Import**'*.   
 
-![Importing cURL in Postman](https://raw.githubusercontent.com/commentedout/commentedout.github.io/master/assets/img/chrome-to-postman-02.png)
-  
-The web request will be cloned in Postman. Cheers!    
+![Importing cURL in Postman](https://raw.githubusercontent.com/commentedout/commentedout.github.io/master/assets/img/chrome-to-postman-02.png)  
+
+  - The web request will be cloned in Postman. Cheers!    
   
   
 If you are using **Firefox**, the process is very similar. See the screenshot below.  
