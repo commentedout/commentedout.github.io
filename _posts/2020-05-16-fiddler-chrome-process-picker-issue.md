@@ -44,5 +44,5 @@ You can see in the above screenshot of Fiddler, I have right-clicked on an HTTPS
   
 ![Chrome Task Manager](https://raw.githubusercontent.com/commentedout/commentedout.github.io/master/assets/img/fidchr-fidl-chr-task-mgr.png)
 
-  I hope this clarified things somewhat. Please let me know your thoughts, comments or suggestions.
+  I hope this clarified things somewhat.
 
