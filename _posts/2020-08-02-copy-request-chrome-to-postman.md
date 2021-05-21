@@ -1,7 +1,7 @@
 ---
 layout: post 
 title: Clone HTTP requests from browsers to Postman 
-tags: 'Development, Tools, Postman, Chrome, Firefox'
+tags: [Development, Tools, Postman, Chrome, Firefox]
 
 ---
 
