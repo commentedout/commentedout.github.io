@@ -18,7 +18,7 @@ Let us assume, you get this vulnerability in the security assessment report of y
 
   
 
-Let me try to explain how this attack happens and how we can try to prevent minimize the risk.
+Let me try to explain how this attack happens and how we can try to ~~prevent~~ minimize the risk.
 
 While an application is running on a machine it uses the machine's memory (RAM /page files) to store its variables for calculations. The variable could be the user credentials or any dataset used in your application. If you forcefully power off your machine at this instant either manually (cold boot) or programmatically, these variables continue to remain in the memory of your machine. You can plug out the RAM/hard disk and using special programs you can read the content of the memory at this state. This usually requires physical access to the machine. If you want to carry out this remotely then you will have to be an administrator on that machine to take the memory dump. But if you are an administrator, why would you take all this pain when you can perform various other simple attacks :)
 
