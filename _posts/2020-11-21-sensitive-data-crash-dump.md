@@ -2,7 +2,7 @@
 layout: post 
 title: Sensitive data showing up in Crash Dump 
 subtitle: 'How to prevent memory leak and secure your application' 
-tags: 'Application Security, OWASP'
+tags: ['Application Security, OWASP']
 
 ---
 
