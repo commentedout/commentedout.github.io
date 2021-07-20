@@ -910,14 +910,3 @@ pre {
   color: #b13022;
   margin-bottom: 5rem;
 }
-
-.bmc {
-  border-top: #e2e0da 1px solid;
-  border-bottom: #e2e0da 1px solid;      
-  padding: 15px;
-}
-
-.bmc img {
-  height: 50px;
-  margin-left: 20px;
-}
