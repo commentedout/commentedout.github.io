@@ -1,8 +1,8 @@
 ---
-layout: post
-subtitle: 'How the usage differs in Java and C#'
-extensions:
-  preset: ''
+layout: post 
+title: Federated Authentication - An Overview
+subtitle: 'Understanding the Differences and Use Cases of OpenID, OAuth, and SAML' 
+tags: [IAM,Authentication,Authorization,Security]
 
 ---
 
