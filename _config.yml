@@ -13,7 +13,7 @@ author: Saurabh
 
 navbar-links:
   about: "aboutme"  
-  home: "https://commentedout.github.io"
+  home: "https://www.commentedout.dev/"
 
 # --- Logo --- #
 
@@ -24,39 +24,28 @@ navbar-links:
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 # round-avatar: true
 
-# If you want to have an image logo in the top-left corner instead of the title text,
+# If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
 #title-img: /path/to/image
 
 
-# --- Footer options --- #
+#####################################
+# --- Footer social media links --- #
+#####################################
 
 # Select the social network links that you want to show in the footer.
+# You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
-# If you don't want to show a link to an RSS feed, set rss to "false".
 social-network-links:
-  email: "cmmtout@gmail.com"
+#  email: "cmmtout@gmail.com"
   github: commentedout
-  twitter: cmmtout
-# facebook: deanattali
-#  rss: true
-#  reddit: yourname
-#  linkedin: daattali
-#  xing: yourname
-#  stackoverflow: "3943160/daattali"
-#  snapchat: deanat78
-#  instagram: deanat78
-#  youtube: user/deanat78
-#  spotify: yourname
-#  telephone: +14159998888
-#  steam: deanat78
-#  twitch: yourname
-#  yelp: yourname
-#  telegram: yourname
-#  calendly: yourname
-#  mastodon: instance.url/@username
+#  twitter: cmmtout
+  linkedin: saurabhranjansingh
+  stackoverflow: "800031/saurabh-r-s"
+#  kaggle: yourname
 
 # --- General options --- #
+###########################
 
 # Select which social network share links to show in posts
 share-links-active:
@@ -64,20 +53,43 @@ share-links-active:
   facebook: false
   linkedin: false
   vk: false
+  reddit: false
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
 url-pretty: "commentedout.github.io"
 
-# Create a "tags" index page and make tags on each post clickable
-link-tags: true
+# Add the website title to the title of every page
+title-on-all-pages: true
 
-# Excerpt Word Length - Truncates the excerpt to the specified number of words on the index page
+# Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
 
-# --- Colours / background image --- #
+# Whether or not to show an excerpt for every blog post in the feed page
+feed_show_excerpt: true
 
-# Personalize the colors in your website. Colour values can be any valid CSS colour
+# Whether or not to show a list of tags below each post preview in the feed page
+feed_show_tags: true
+
+# Add a search button to the navbar
+post_search: true
+
+# Add a button in the footer to edit the current page. Only works if your website is hosted on GitHub
+edit_page_button: false
+
+# Allow sub-menu items (second-level navigation menu items) to be longer than the top-level menu
+# If this setting is off, then long sub-menu words might get cut off
+# See https://github.com/daattali/beautiful-jekyll/issues/765 to understand the issue this setting can solve
+navbar-var-length: false
+
+# The keywords to associate with your website, for SEO purposes
+#keywords: "my,list,of,keywords"
+
+######################################
+# --- Colours / background image --- #
+######################################
+
+# Personalize the colours in your website. Colour values can be any valid CSS colour
 
 navbar-col: "#f5f2eb"
 navbar-text-col: "#000000"
@@ -89,69 +101,42 @@ footer-col: "#f5f2eb"
 footer-text-col: "#dfe096"
 footer-link-col: "#404040"
 
-# Alternatively, the navbar, footer, and page background can be set to use background images
+# Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
 
 #navbar-img: "/assets/img/bgimage.png"
 #footer-img: "/assets/img/bgimage.png"
 #page-img: "/assets/img/bgimage.png"
 
-# --- Web Statistics Section --- #
+# Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
+#mobile-theme-col: "#0085A1"
 
-# Fill in your Google Analytics gtag.js ID to track your website using gtag
-gtag: "UA-176039926-1"
+# For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
+#site-css:
+#  - "/assets/css/custom-styles.css"
 
-# Fill in your Google Analytics ID to track your website using GA
-#google_analytics: ""
+# If you have common JavaScript files that should be included in every page, list them here
+#site-js:
+#  - "/assets/js/custom-script.js"
+
+#################################
+# --- Web Analytics Section --- #
+#################################
+
+# Fill in your Google Analytics tag ID (or "Measurement ID") to track your website usage
+#gtag: "G-XXXXXXXXXX"
+
+# Fill in your Cloudflare Analytics beacon token to track your website using Cloudflare Analytics
+#cloudflare_analytics: ""
 
 # Google Tag Manager ID
 #gtm: ""
 
-# Matomo (aka Piwik) Web statistics
-# Uncomment the following section to enable Matomo. The opt-out parameter controls
-# whether or not you want to allow users to opt out of tracking.
-#matomo:
-#  site_id: "9"
-#  uri: "demo.wiki.pro"
-#  opt-out: true
 
-# --- Comments --- #
-
-# To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-#disqus: "cmmtout"
-
-# To use Facebook Comments, create a Facebook app and fill in the Facebook App ID
-#fb_comment_id: ""
-
-# To use Utterances comments: (0) uncomment the following section, (1) fill in
-# "repository" (make sure the repository is public), (2) Enable Issues in your repository,
-# (3) Install the Utterances app in your repository https://github.com/apps/utterances
-# See more details about the parameters below at https://utteranc.es/
-#utterances:
-#  repository: # GitHub username/repository eg. "daattali/beautiful-jekyll"
-#  issue-term: title   # Mapping between blog posts and GitHub issues
-#  theme: github-light # Utterances theme
-#  label: blog-comments # Label that will be assigned to GitHub Issues created by Utterances
-
-# To use Staticman comments, first invite `staticmanlab` as a collaborator to your repository and
-# accept the invitation by going to `https://staticman3.herokuapp.com/v3/connect/github/<username>/<repo-name>`.
-# Then uncomment the following section and fill in "repository", "branch", and "endpoint".
-# If you want to use reCaptcha for staticman (optional for spam protection), then fill
-# in the "siteKey" and "secret" parameters below and also in `staticman.yml`.
-# See more details at https://staticman.net/
-#staticman:
-#  repository : # GitHub username/repository eg. "daattali/beautiful-jekyll"
-#  branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
-#  endpoint   : # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
-#  reCaptcha:
-#    siteKey  : # Use your own site key, you need to apply for one on Google
-#    secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
-
-# --- Misc --- #
-
-# Character used to separate site title and description in HTML document title
-# and RSS feed title
-title-separator: "-"
+# Google Universal Analytics ID -- deprecated
+# As of July 2023 this is no longer supported by Google! If you are still using `google_analytics`,
+# you should switch to using the `gtag` field above instead.
+#google_analytics: "UA-XXXXXXXX-X"
 
 # Ruby Date Format to show dates of posts
 date_format: "%B %-d, %Y"
@@ -159,11 +144,12 @@ date_format: "%B %-d, %Y"
 # Facebook App ID
 #fb_app_id: ""
 
-
+#################################################################################
 # --- You don't need to touch anything below here (but you can if you want) --- #
+#################################################################################
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Vancouver"
+timezone: "America/Toronto"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
@@ -182,13 +168,11 @@ defaults:
       layout: "post"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
-      readtime: false # add estimated reading time on all blog posts
   -
     scope:
-      path: "" # all files
+      path: "" # any file that's not a post will be a "page" layout by default
     values:
       layout: "page"
-      show-avatar: true
 
 # Exclude these files from production site
 exclude:

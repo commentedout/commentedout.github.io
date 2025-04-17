@@ -5,13 +5,14 @@
       {% include social-networks-links.html %}
       {% if page.footer-extra %}
         <div class="footer-custom-content">
-          {% include {{ page.footer-extra }} %}
+          {% for file in page.footer-extra %}
+            {% include {{ file }} %}
+          {% endfor %}
         </div>
-      {% endif %}    
+      {% endif %}
+   
       <p class="theme-by">
-        Thank you
-        <a href="https://beautifuljekyll.com">beautiful-jekyll</a>
-        for this theme.
+        Thank you <a href="https://beautifuljekyll.com">Beautiful Jekyll</a> for this theme.
       </p>
       </div>
     </div>
